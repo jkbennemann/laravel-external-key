@@ -52,7 +52,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ExternalKeyServiceProvider"
+                "Jkbennemann\\ExternalKey\\ExternalKeyServiceProvider"
             ]
         }
     },
