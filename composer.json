@@ -17,9 +17,8 @@
         }
     ],
     "require": {
-        "php": "^8.0",
-        "hashids/hashids": "^4.1",
-        "illuminate/contracts": "^8.37 || 9.x",
+        "php": "8.*",
+        "illuminate/contracts": "8.* || 9.x",
         "spatie/laravel-package-tools": "^1.4.3"
     },
     "require-dev": {
