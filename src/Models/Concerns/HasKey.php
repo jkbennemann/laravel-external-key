@@ -13,8 +13,8 @@ trait HasKey
     {
         static::creating(
             function (Model $model) {
-                $model->{$model->getKeyColumn()} = Str::key(
-                    substr(strtolower(class_basename($model)), 0, 3) . '_'
+                $model->{$this->getKeyColumn()} = Str::key(
+                    $this->keyPrefix()
                 );
             }
         );
@@ -23,5 +23,22 @@ trait HasKey
     public function getKeyColumn(): string
     {
         return 'key';
+    }
+
+    protected function keyPrefix(): ?string
+    {
+        return substr(strtolower(class_basename(self::class)), 0, 3) . '_';
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->{$this->getKeyColumn()};
+    }
+
+    public function setReference(string $reference): self
+    {
+        $this->{$this->getKeyColumn()} = $reference;
+
+        return $this;
     }
 }
