@@ -13,10 +13,15 @@ trait HasKey
     {
         static::creating(
             function (Model $model) {
-                $model->key = Str::key(
+                $model->{$model->getKeyColumn()} = Str::key(
                     substr(strtolower(class_basename($model)), 0, 3) . '_'
                 );
             }
         );
+    }
+
+    public function getKeyColumn(): string
+    {
+        return 'key';
     }
 }

@@ -6,6 +6,7 @@ namespace Jkbennemann\ExternalKey\Tests;
 
 use Jkbennemann\ExternalKey\ExternalKeyServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Spatie\LaravelRay\RayServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -18,6 +19,7 @@ class TestCase extends Orchestra
     {
         return [
             ExternalKeyServiceProvider::class,
+            RayServiceProvider::class,
         ];
     }
 }
