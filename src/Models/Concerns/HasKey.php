@@ -13,8 +13,8 @@ trait HasKey
     {
         static::creating(
             function (Model $model) {
-                $model->{$this->getKeyColumn()} = Str::key(
-                    $this->keyPrefix()
+                $model->{$model->getKeyColumn()} = Str::key(
+                    $model->keyPrefix()
                 );
             }
         );
